@@ -1,0 +1,153 @@
+/* Karakteri giriş alanındaki seçilen konumunda tutar. */
+.character-game {
+  position: absolute;
+  right: -9rem;
+  bottom: -8rem;
+  display: flex;
+  align-items: flex-end;
+  z-index: 6;
+}
+
+/* Pixel karaktere tıklanan görünmez butondur. */
+.character-trigger {
+  display: block;
+  width: 8.25rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Karakter sticker'ının ölçüsü ve hafif gölgesidir. */
+.character-avatar {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0.3rem 0.25rem rgba(32, 25, 42, 0.2));
+  transition: transform 180ms ease;
+}
+
+/* Karakterin tıklanabildiğini küçük bir hareketle anlatır. */
+.character-trigger:hover .character-avatar {
+  transform: translateY(-0.35rem) rotate(-2deg);
+}
+
+/* Karakterin yanında açılan quiz konuşma balonudur. */
+.character-welcome,
+.quiz-bubble {
+  position: absolute;
+  right: calc(100% - 0.55rem);
+  bottom: 1.2rem;
+  width: 15rem;
+  padding: 1rem 1.1rem;
+  border: 3px solid #ffffff;
+  border-radius: 1.2rem;
+  background: #e8dbff;
+  box-shadow: 0 0.25rem 0 rgba(65, 48, 82, 0.18);
+  color: #493766;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+/* Balonun karaktere bakan küçük konuşma ucudur. */
+.character-welcome::after,
+.quiz-bubble::after {
+  position: absolute;
+  right: -0.55rem;
+  bottom: 1.05rem;
+  width: 1rem;
+  height: 1rem;
+  border-top: 3px solid #ffffff;
+  border-right: 3px solid #ffffff;
+  background: #e8dbff;
+  content: "";
+  transform: rotate(45deg);
+}
+
+/* Tanıtım metninin varsayılan paragraf boşluğunu kaldırır. */
+.quiz-bubble p {
+  margin: 0;
+}
+
+/* Quiz'i başlatacak yeşil aksiyon butonudur. */
+.quiz-start-button {
+  margin-top: 0.85rem;
+  padding: 0.55rem 1rem;
+  border: 2px solid #ffffff;
+  border-radius: 0.75rem;
+  background: #79bd87;
+  box-shadow: 0 0.18rem 0 rgba(48, 105, 61, 0.25);
+  color: #173c22;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.quiz-progress{
+  margin: 0 0 0.55rem;
+  color: #7855a3;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.quiz-question{
+  margin: 0 0 0.9rem;
+  color: #342544;
+  font-size: 1rem;
+  font-weight: 850;
+  line-height: 1.45;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.quiz-option {
+  padding: 0.6rem 0.7rem;
+  border: 2px solid #ffffff;
+  border-radius: 0.7rem;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 0.15rem 0 rgba(65, 48, 82, 0.16);
+  color: #493766;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.quiz-option:hover {
+  background: #ffffff;
+  transform: translateY(-0.15rem);
+}
+
+.quiz-option:focus-visible {
+  outline: 3px solid #8d70bd;
+  outline-offset: 2px;
+}
+
+/* Dar ekranlarda balon ile karakteri ortalı ve taşmasız tutar. */
+@media (max-width: 800px) {
+  .character-game {
+   right: 0.5rem;
+   bottom: -11rem;
+  }
+
+  .character-trigger{
+    width: 6rem;
+  }
+
+  .character-welcome,
+  .quiz-bubble {
+  
+    width: min(12rem, calc(100vw - 7rem));
+    right: calc(100% - 0.35rem);
+    bottom: 0.75rem;
+    padding: 0.75rem 0.85rem;
+    font-size: 0.82rem;
+  }
+}

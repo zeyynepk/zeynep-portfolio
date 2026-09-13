@@ -1,0 +1,40 @@
+:root {
+  --page-bg: #f3edde; /* Sayfanın arka plan rengi. */
+  --text-color: #1d1d1f; /* Ana yazı rengi. */
+  --header-bg: #f3e7cb; /* Açık tema menü zemini. */
+  --nav-color: #55555b;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-color); /* Yazı rengini değişkenden alır */
+  background: var(--page-bg); /* Zemin rengini değişkenden alır */
+  font-synthesis: none; /* Tarayıcının yapay kalın/italik yazı üretmesini engeller. */
+  
+}
+
+:root[data-theme="dark"] {
+  --page-bg: #313032; /* Koyu temanın zemini. */
+  --text-color: #f5f2f8; /* Koyu temanın açık yazı rengi. */
+  --header-bg: #2b2930; /* Koyu tema menü zemini. */
+  --nav-color: #d3cedb;
+}
+
+/* Tüm öğelerin genişlik ve yükseklik hesabına iç boşluk/border'ı dahil eder. */
+* {
+  box-sizing: border-box;
+}
+
+/* Menü bağlantılarına tıklanınca bölüm geçişlerini yumuşatır. */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0; /* Tarayıcının varsayılan kenar boşluğunu kaldırır. */
+  min-width: 320px;
+  background: var(--page-bg); /* Sayfa gövdesinde aynı zemin rengini kullanır */
+}
+
+a {
+  color: inherit; /* Tüm bağlantıların varsayılan mavi rengini kaldırır. */
+  text-decoration: none; /* Bağlantıların varsayılan alt çizgisini kaldırır. */
+}
+
