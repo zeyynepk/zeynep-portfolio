@@ -4,12 +4,9 @@ A personal portfolio website built with React and Vite. It brings together my pr
 
 ## Preview
 
-<!--
-Add your portfolio screenshot here after deployment.
-1. Create a `docs` folder in the project root.
-2. Save the image as `portfolio-preview.png` inside that folder.
-3. Remove the comment markers below.
+> A portfolio screenshot will be added here after deployment.
 
+<!-- Replace the line above with your uploaded image, for example:
 ![Portfolio preview](./docs/portfolio-preview.png)
 -->
 
