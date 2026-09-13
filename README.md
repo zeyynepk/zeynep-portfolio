@@ -1,16 +1,66 @@
-# React + Vite
+# Zeynep Kediz | Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built with React and Vite. It brings together my projects, technical skills, internship experience, and contact information in one place.
 
-Currently, two official plugins are available:
+## Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<!--
+Add your portfolio screenshot here after deployment.
+1. Create a `docs` folder in the project root.
+2. Save the image as `portfolio-preview.png` inside that folder.
+3. Remove the comment markers below.
 
-## React Compiler
+![Portfolio preview](./docs/portfolio-preview.png)
+-->
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Light and dark theme support
+- Responsive design for mobile devices
+- Project cards with GitHub links
+- Internship timeline
+- GitHub, LinkedIn, and email contact cards
+- Mini technical interview quiz
+- Custom hero section with decorative SVG elements
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies
+
+- React
+- Vite
+- JavaScript
+- HTML
+- CSS
+
+## Run Locally
+
+After cloning the repository, run:
+
+```bash
+npm install
+npm run dev
+```
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+## Project Structure
+
+```text
+src/
+├── assets/        # Images and SVG decorations
+├── Components/    # Reusable components
+├── data/          # Project and quiz data
+├── App.jsx        # Main application component
+└── App.css        # Main stylesheet
+```
+
+## Contact
+
+- GitHub: [zeyynepk](https://github.com/zeyynepk)
+- LinkedIn: [Zeynep Kediz](https://www.linkedin.com/in/zeynepkediz/)
+- Email: zeynep.kedizz@gmail.com
+
+This project was created for portfolio purposes.
