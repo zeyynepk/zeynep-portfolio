@@ -4,11 +4,10 @@ A personal portfolio website built with React and Vite. It brings together my pr
 
 ## Preview
 
-> A portfolio screenshot will be added here after deployment.
+<img width="1470" height="871" alt="Ekran Resmi 2026-09-14 01 34 19" src="https://github.com/user-attachments/assets/91888cab-8700-400a-9cad-d6cc637915ed" />
 
-<!-- Replace the line above with your uploaded image, for example:
-![Portfolio preview](./docs/portfolio-preview.png)
--->
+<img width="1470" height="872" alt="Ekran Resmi 2026-09-14 01 34 37" src="https://github.com/user-attachments/assets/a7449427-91c2-493d-a808-cde75ebc2ce4" />
+
 
 ## Features
 
