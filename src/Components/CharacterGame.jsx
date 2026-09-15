@@ -10,6 +10,7 @@ function CharacterGame() {
   const [hasStarted, setHasStarted] = useState(false)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0) // Ziyaretçinin şu an kaçıncı soruda olduğunu tutar.
   const [score, setScore] = useState(0)
+  const [selectedAnswer, setSelectedAnswer] = useState(null) // Seçilen cevabı ve rengini göstermek için tutar.
 
   function toggleQuiz() {
     if (isOpen) {
@@ -27,25 +28,32 @@ function CharacterGame() {
     setActiveQuestions(newQuestions) // Seçilen soruları ekranda kullanmak üzere state'e kaydeder.
     setCurrentQuestionIndex(0) // Yeni quiz her zaman ilk sorudan başlar.
     setScore(0) // Yeni quizde önceki doğru cevap sayısı sıfırlanır.
+    setSelectedAnswer(null)
     setHasStarted(true)   // Tanıtım ekranı yerine soru ekranını göstereceğimizi belirtir.
   }
 
   // Seçilen cevabı kontrol eder ve bir sonraki soruya geçer.
-  function handleAnswer(selectedAnswer) {
+  function handleAnswer(selectedOption) {
 
     const currentQuestion = activeQuestions[currentQuestionIndex] // Ekranda olan mevcut soruyu bulur.
 
-    // Herhangi bir soru yoksa işlemi durdurur.
-    if (!currentQuestion) {
+    // Herhangi bir soru yoksa ya da zaten bir cevap seçiliyse işlemi durdurur.
+    if (!currentQuestion || selectedAnswer) {
       return
     }
 
+    setSelectedAnswer(selectedOption) // Rengi gösterebilmek için seçilen cevabı saklar.
+
     // Seçilen metin doğru cevap metniyle aynıysa puanı artırır.
-    if (selectedAnswer === currentQuestion.correctAnswer) {
+    if (selectedOption === currentQuestion.correctAnswer) {
       setScore((currentScore) => currentScore + 1)
     }
 
-    setCurrentQuestionIndex((currentIndex) => currentIndex + 1) // Soru sıra numarasını bir artırarak sonraki soruya geçer.
+    // Renkleri kısa süre gösterdikten sonra sonraki soruya geçer.
+    setTimeout(() => {
+      setSelectedAnswer(null)
+      setCurrentQuestionIndex((currentIndex) => currentIndex + 1)
+    }, 900)
   }
 
   // Verilen sayı kadar soru seçer ve her sorunun cevaplarını da karıştırır.
@@ -108,16 +116,29 @@ function CharacterGame() {
 
               {/* Güncel sorunun karıştırılmış seçeneklerini listeler. */}
               <div className="quiz-options">
-                {activeQuestions[currentQuestionIndex].options.map((option) => (
-                  <button
-                    key={option}
-                    type="button"
-                    className="quiz-option"
-                    onClick={() => handleAnswer(option)}
-                  >
-                    {option}
-                  </button>
-                ))}
+                {activeQuestions[currentQuestionIndex].options.map((option) => {
+                  const isCorrectOption = option === activeQuestions[currentQuestionIndex].correctAnswer
+                  const isSelectedWrong = selectedAnswer === option && !isCorrectOption
+
+                  let optionClass = 'quiz-option'
+                  if (selectedAnswer && isCorrectOption) {
+                    optionClass += ' quiz-option--correct' // Doğru seçenek her zaman yeşil yanar.
+                  } else if (isSelectedWrong) {
+                    optionClass += ' quiz-option--incorrect' // Yanlış seçilen kırmızı yanar.
+                  }
+
+                  return (
+                    <button
+                      key={option}
+                      type="button"
+                      className={optionClass}
+                      onClick={() => handleAnswer(option)}
+                      disabled={Boolean(selectedAnswer)}
+                    >
+                      {option}
+                    </button>
+                  )
+                })}
               </div>
             </>
           ) : (

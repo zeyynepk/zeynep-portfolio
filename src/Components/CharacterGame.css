@@ -1,7 +1,7 @@
 /* Karakteri giriş alanındaki seçilen konumunda tutar. */
 .character-game {
   position: absolute;
-  right: -12rem;
+  right: -15rem;
   bottom: -8rem;
   display: flex;
   align-items: flex-end;
@@ -157,4 +157,38 @@
     right: 0.5rem;
     bottom: -9rem;
   }
+}
+
+/* Karakterin tıklanabilir olduğunu hafif bir zıplamayla belli eder. */
+.character-trigger {
+  animation: character-bounce 2s ease-in-out infinite;
+}
+
+@keyframes character-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.9rem);
+  }
+}
+
+
+/* Doğru cevap seçilince yeşil yanar. */
+.quiz-option--correct {
+  background: #b7e4b0 !important;
+  border-color: #4caf50;
+  color: #1e4620;
+}
+
+/* Yanlış seçilen cevap kırmızı yanar. */
+.quiz-option--incorrect {
+  background: #f5b8b0 !important;
+  border-color: #e05c4a;
+  color: #6b1d12;
+}
+
+/* Cevap seçildikten sonra butonlara tekrar tıklanamaz. */
+.quiz-option:disabled {
+  cursor: default;
 }
