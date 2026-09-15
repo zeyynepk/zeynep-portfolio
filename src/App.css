@@ -171,8 +171,9 @@ section h2::before {
 
 #home {
   min-height: calc(100vh - 72px);
-  /* 100vh, görünüm yüksekliğinin tamamını temsil eder. 72px, header'ın yüksekliğini temsil eder. İlk ekran yükleme sırasında header'ın yüksekliği kadar boşluk bırakır. */
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 7rem 6vw;
 }
 
