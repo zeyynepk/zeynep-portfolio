@@ -151,3 +151,10 @@
     font-size: 0.82rem;
   }
 }
+
+@media (max-width: 1100px) {
+  .character-game {
+    right: 0.5rem;
+    bottom: -9rem;
+  }
+}
